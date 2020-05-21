@@ -7,22 +7,28 @@ import { CaliService } from 'src/app/services/cali.service';
   styleUrls: ['./cali.component.css']
 })
 export class CaliComponent {
-  totalArray: any[] = [];
-  muertesArray: any[] = [];
-  recuperadosArray: any[] = [];
+  totalCasos:number;
+  totalMuertes:number;
+  totalRecuperados:number;
   cargando: boolean = true;
   constructor(private _cali: CaliService) {
-    this._cali.getCasos()
+    
+      this._cali.getTotal()
       .subscribe(
-        (data: any) => {
-          this.totalArray = data;
-          for (let index = 0; index < data.length; index++) {
-            if(data[index].atenci_n=="Fallecido"){
-              this.muertesArray.push(data[index]);
-            }else if(data[index].atenci_n=="Recuperado"){
-              this.recuperadosArray.push(data[index]);
-            }
-          }
+        (data:any)=>{
+          this.totalCasos=(data[0].count_id_de_caso);
+        }
+      );
+      this._cali.getRecuperados()
+      .subscribe(
+        (data:any)=>{
+          this.totalRecuperados=(data[0].count_id_de_caso);
+        }
+      );
+      this._cali.getMuertes()
+      .subscribe(
+        (data:any)=>{
+          this.totalMuertes=(data[0].count_id_de_caso);
         }
       );
     this.cargando = false;

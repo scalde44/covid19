@@ -1,13 +1,12 @@
 export const environment = {
   production: true,
   firebaseConfig : {
-    apiKey: "AIzaSyALRlRi5AlHiehlZkToB9HldUPuaYDeu3U",
-    authDomain: "formcovid-f0608.firebaseapp.com",
-    databaseURL: "https://formcovid-f0608.firebaseio.com",
-    projectId: "formcovid-f0608",
-    storageBucket: "formcovid-f0608.appspot.com",
-    messagingSenderId: "706264815643",
-    appId: "1:706264815643:web:5e052c19bcfcb7b0bac0be",
-    measurementId: "G-0P2RWKG6YG"
+    apiKey: "AIzaSyCfy8j6DIqpSHHTAlBbSZaLSbAdQRurwA8",
+    authDomain: "covid-aee07.firebaseapp.com",
+    databaseURL: "https://covid-aee07.firebaseio.com",
+    projectId: "covid-aee07",
+    storageBucket: "covid-aee07.appspot.com",
+    messagingSenderId: "840548023090",
+    appId: "1:840548023090:web:46a959f4ec27aa7c43752b"
   }
 };

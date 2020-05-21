@@ -1,1 +1,19 @@
-<p>about works!</p>
+<div class="container">
+    <br>
+    <h1>Casos sospechosos por comuna en Cali</h1>
+    <hr>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Comuna</th>
+                <th scope="col">Casos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of comunas;let i = index">
+                <td>{{c}}</td>
+                <td>{{casosComunas[i]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

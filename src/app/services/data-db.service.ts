@@ -7,10 +7,15 @@ import { MessageI } from '../interface/message.interface';
 })
 export class DataDbService {
   private covidCollection: AngularFirestoreCollection<MessageI>;
+  private items:Observable<any>;
   constructor(private afs:AngularFirestore) { 
     this.covidCollection=afs.collection<MessageI>('covid');
+    this.items=afs.collection('covid').valueChanges();
   }
   saveMessage(newCovid:any):void{
     this.covidCollection.add(newCovid);
+  }
+  getItems(){
+    return this.items;
   }
 }

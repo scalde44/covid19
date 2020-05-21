@@ -1,56 +1,48 @@
+<hr>
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card shadow-lg p-3 mb-5 bg-light">
-                <div class="card-header">Formulario</div>
-                <div class="card-body">
-                    <form [formGroup]="contactForm" (ngSubmit)="onSaveForm()">
-                        <div class="form-row">
-                            <div class="col-md-4 mb-3">
-                                <label for="fname">Nombre</label>
-                                <input type="text" class="form-control" id="fname" formControlName="nombre" required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="lname">Apellido</label>
-                                <input type="text" class="form-control" id="lname" formControlName="apellido" required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="id">Cédula</label>
-                                <input type="number" class="form-control" id="id" formControlName="cedula" required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="ed">Edad</label>
-                                <input type="number" class="form-control" id="ed" formControlName="edad" required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="street">Dirección</label>
-                                <input type="text" class="form-control" id="street" formControlName="direccion" required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="com">Comuna</label>
-                                <select class="form-control" id="com" formControlName="comuna" required>
-                                    <option *ngFor="let c of comunas">{{c}}</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="gen">Género</label>
-                                <select class="form-control" id="gen" formControlName="sexo" required>
-                                    <option value="M">M</option>
-                                    <option value="F">F</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="sin">Sintomas</label>
+    <h1 class="text-center">
+        Registrar posibles casos sospechosos
+    </h1>
 
-                                <select multiple id="sin" formControlName="sintomas" class="selectpicker w-100">
-                                    <option *ngFor="let s of sinto;let i=index;" [value]="sinto[i]">{{sinto[i]}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="contactForm" (ngSubmit)="onSaveForm()">
+                <label for="fname">Nombre</label>
+                <input type="text" class="form-control" id="fname" formControlName="nombre" required placeholder="Nombre">
+
+
+                <label for="lname">Apellido</label>
+                <input type="text" class="form-control" id="lname" formControlName="apellido" required placeholder="Apellido" minlength="6">
+
+
+                <label for="id">Cédula</label>
+                <input type="number" class="form-control" id="id" formControlName="cedula" required placeholder="Cedula">
+
+
+                <label for="ed">Edad</label>
+                <input type="number" class="form-control" id="ed" formControlName="edad" required placeholder="Edad">
+
+
+                <label for="street">Dirección</label>
+                <input type="text" class="form-control" id="street" formControlName="direccion" required placeholder="Direccion">
+
+
+                <label for="com">Comuna</label>
+                <select class="form-control" id="com" formControlName="comuna" required>
+                    <option *ngFor="let c of comunas">{{c}}</option>
+                </select>
+
+                <label for="gen">Género</label>
+                <select class="form-control" id="gen" formControlName="sexo" required>
+                    <option *ngFor="let xxx of sexos">{{xxx}}</option>
+                </select>
+                <label for="sin">Sintomas</label>
+                <select multiple id="sin" formControlName="sintomas" class="selectpicker" required>
+                    <option *ngFor="let s of sinto" >{{s}}</option>
+                </select>
+                <hr>
+                <button type="submit" class="btn btn-danger btn-block">Enviar</button>
+            </form>
         </div>
     </div>
-</div>
+    <button (click)="refresh()" class="btn btn-secondary btn-block">Mostrar Sintomas</button>
